@@ -10,4 +10,4 @@ pesos = [
 sesgos = [2, 3]
 
 salidas = np.dot(pesos, entradas) + sesgos
-print(salidas)
+print(salidas) 
