@@ -16,7 +16,7 @@ plt.show() # mostrar la grafica
 
 
 # Funcion Sigmoide
-# Produce valores entre 0 y 1. Esto representa una probabilidad.
+# Produce valores entre 0 y 1. Esto representa una probabilidad. Ideal para calificacion binaria
 # Ecuacion: f(x) = 1 / (1 + e^-x)
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
@@ -89,8 +89,9 @@ plt.show()
 # Funcion Softmax
 # Utilizado en la ultima capa de una red neuronal para clasificacion multiclase.
 # Entre mas grande sea el valor de x, mas probable es que sea la clase correcta.
+# La suma de todas las salidas es igual a 1
 # Ecuacion: f(x) = e^x / sum(e^x)
 def softmax(x):
     exp_x =  np.exp(x - np.max(x))
-    return exp_x / np.sum(exp_x, axis=0)
+    return exp_x / np.sum(exp_x, axis=1)
 

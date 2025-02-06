@@ -5,7 +5,7 @@ import numpy as np
 
 class CapaDensa:
     def __init__(self, entradas: int, neuronas: int): # "entradas" es la cantidad de entradas
-        self.pesos = np.random.rand(neuronas, entradas) * 0.01 # rand crea una matriz de numeros aleatorios
+        self.pesos = np.random.rand(entradas, neuronas) * 0.01 # rand crea una matriz de numeros aleatorios
         self.sesgos = np.zeros((1, neuronas)) # Crear un arreglo de ceros de 1 fila y "neuronas" columnas
         # el primer parametro son las filas y el segundo las columnas
 
