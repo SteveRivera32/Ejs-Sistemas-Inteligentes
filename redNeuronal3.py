@@ -35,3 +35,4 @@ capa2.forward(capa1.salida)
 capa_salida.forward(capa2.salida)
 
 print(capa_salida.salida)
+                                                                                             
