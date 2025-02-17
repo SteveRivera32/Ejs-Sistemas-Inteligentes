@@ -1,10 +1,21 @@
 # Ejercicio 1
+# Resolucion ing
 def salida_neurona(entradas, pesos, sesgo):
     valor = 0
     for x in range (len(pesos)):
         valor += entradas[x] * pesos[x]
 
     return valor + sesgo
+
+# Resolucion mia
+def salida_neurona(entradas, pesos, sesgo):
+    valor = 0
+    for (entrada, peso) in zip(entradas, pesos):
+        valor += entrada * peso
+
+    return valor + sesgo
+
+
 
 # Ejercicio 2
 def salida_capa(entradas, pesos, sesgos):
@@ -18,10 +29,9 @@ def salida_capa(entradas, pesos, sesgos):
 import numpy as np
 
 class CapaDensa:
-    def __init__(self, cant_neuronas, cant_entradas):
+    def __init__(self, cant_entradas, cant_neuronas):
         self.pesos = np.random.rand(cant_neuronas, cant_entradas) * 0.01
-        self.sesgos = np.zeros.randn(cant_neuronas, 1) * 0.01
+        self.sesgos = np.random.rand(1, cant_neuronas) * 0.01
 
-    def forward(self, datos):
-        # Hacer transpuesta de pesos
-        self.salidas = np.dot(self.pesos, datos) + self.sesgos
+    def forward(self, entradas):
+        self.salida = np.dot(self.pesos, entradas) + self.sesgos.T
