@@ -1,3 +1,4 @@
+# Calculo de la perdida de la red
 # La funcion de perdida nos sirve para medir tambien la confianza y no solo la precision
 # Ej
 # Prediccion 1: [0.22, 0.6, 0.18] - Argmax: 1
@@ -32,8 +33,14 @@ y_pred_clipped = np.clip(softmax_outputs, 1e-7, 1 - 1e-7) # Reemplaza 0 por 1e-7
                                                           # en el arreglo mandado
 
 # Calcular perdida
-correct_confidences = y_pred_clipped[range(len(softmax_outputs)), class_targets]
-negative_log_likelihoods = -np.log(correct_confidences)
-loss = np.mean(negative_log_likelihoods)
+correct_confidences = y_pred_clipped[range(len(softmax_outputs)), class_targets] # hace un arreglo de los valores correctos
+negative_log_likelihoods = -np.log(correct_confidences) 
+loss = np.mean(negative_log_likelihoods) # promedio de la perdida de todo el batch
 
 print("Perdida:", loss)
+
+
+# Calculo de la precision
+predictions = np.argmax(softmax_outputs, axis=1) # argmax devuelve indice del valor mas grande
+accuracy = np.mean(predictions == class_targets) # Promedio de aciertos
+print("Precision:", accuracy)
